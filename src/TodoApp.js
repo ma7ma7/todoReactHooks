@@ -36,6 +36,14 @@ function TodoApp() {
     setTodos(updatedTodo);
   };
 
+  const updateTodo = (todoId, task) => {
+    const updatedTodo = todos.map((todo) =>
+      todo.id === todoId ? { ...todo, task: task } : todo
+    );
+
+    setTodos(updatedTodo);
+  };
+
   return (
     <Paper
       elevation={0}
@@ -65,6 +73,7 @@ function TodoApp() {
             todos={todos}
             removeTodo={removeTodo}
             toggleTodo={toggleTodo}
+            updateTodo={updateTodo}
           />
         </Grid>
       </Grid>
